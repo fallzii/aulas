@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+
+    // Variáveis para armazenar os números sorteados
+    int numero1, numero2, numero3;
+
+    // Variável para controlar se o jogador quer jogar novamente
+    char repetir;
+
+    // Inicializa o gerador de números aleatórios
+    srand(time(NULL));
+
+    // Início do sistema de repetição
+    do {
+
+        printf("\n==============================\n");
+        printf("       JOGO DOS NUMEROS\n");
+        printf("==============================\n");
+
+        // Aguarda o jogador pressionar ENTER
+        printf("\nPressione ENTER para sortear...");
+        getchar();
+
+        // Sorteia números de 1 até 5
+        numero1 = rand() % 5 + 1;
+        numero2 = rand() % 5 + 1;
+        numero3 = rand() % 5 + 1;
+
+        // Mostra o resultado
+        printf("\nResultado:\n\n");
+
+        printf("      %d   %d   %d\n", numero1, numero2, numero3);
+
+        // Verifica se os três números são iguais
+        if (numero1 == numero2 && numero2 == numero3) {
+
+            printf("\nPARABENS! VOCE GANHOU!\n");
+            printf("Os tres numeros sao iguais!\n");
+
+        } else {
+
+            printf("\nVOCE PERDEU!\n");
+            printf("Os tres numeros nao sao iguais.\n");
+        }
+
+        // Pergunta se o jogador deseja jogar novamente
+        printf("\nDeseja jogar novamente? (s/n): ");
+        scanf(" %c", &repetir);
+
+        // Limpa o ENTER que ficou no teclado
+        getchar();
+
+    // Repete o jogo enquanto o jogador responder S ou s
+    } while (repetir == 's' || repetir == 'S');
+
+    // Mensagem final
+    printf("\nObrigado por jogar!\n");
+
+    return 0;
+}
